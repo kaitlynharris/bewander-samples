@@ -1,3 +1,6 @@
+// code in the cshtml file generating image carousel
+// assigns each image an ID matching ID in model
+// creates delete button that calls DeleteImage function in UserProfilesController
 @foreach (var item in Model.Avatar)
      {
          var imageID = item.FileID;
@@ -18,6 +21,8 @@
          }
      }
 
+// this function is in UserProfilesController
+// finds image in model with correct ID and removes it, then returns user to ProfilePage
 public ActionResult DeleteImage(int id, string userID)
     {
        File file = db.Files.Find(id);
